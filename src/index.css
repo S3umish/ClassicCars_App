@@ -1,8 +1,10 @@
+* {
+  font-family: 'Verdana', serif;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Verdana', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +12,76 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.navbar {
+  background-color: hsl(52, 89%, 51%);
+  color: white;
+}
+
+.jumbotron {
+  color: #fff;
+  background-image: url('https://images.unsplash.com/photo-1610752425711-25e897b71930?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHZpbnRhZ2UlMjBjYXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80');
+  background-repeat: no-repeat;
+  padding: 20px;
+  height: 1200px;
+  width: 100%;
+  position:relative
+}
+
+.jumbotron h1 {
+  font-weight: bold;
+  font-size: 62px;
+}
+
+.about {
+  color: #ce4e1b;
+  font-family: 'Marcellus', serif;
+  font-size: 35px;
+  text-align: center;
+  padding: 30px;
+  margin-top: 50px;
+}
+
+.CarCard {
+  margin-bottom: 65px;
+  color: rgb(0, 0, 0);
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 17px;
+  float: left;
+  margin: 1.5%;
+  text-align: center;
+  width: 30%;
+  height: 300px;
+  background: rgb(245, 245, 245);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.footer {
+  height: 50px;
+  background-color:hsl(52, 89%, 51%);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.CarContainer {
+  padding: 20px;
+  color: rgb(255, 230, 0);
+  font-family: Verdana, Geneva, sans-serif;
+  text-align: center;
+}
+
+.CarForm {
+  margin: 30px;
+  padding: 30px;
+  background-color: rgb(36, 36, 36);
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  display: block;
+  text-align: center;
 }
