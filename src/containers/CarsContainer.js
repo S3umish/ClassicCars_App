@@ -11,4 +11,11 @@ class CarsContainer extends Component {
     }
 }
 
-export default connect()(CarsContainer)
+const mapStateToProps = state => {
+    return {
+        cars: state.carReducer.cars,
+        loading: state.carReducer.loading
+    }
+}
+
+export default connect(mapStateToProps)(CarsContainer)
