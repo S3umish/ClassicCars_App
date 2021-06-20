@@ -7,10 +7,10 @@ const CarCard = (props) => {
         <div className ="carCard">
             key= {props.id}
             id = {props.id}
-            name = {props.name}
+            title = {props.tile}
             image_url = {props.image_url}
             description = {props.description}
-            rating = {props.rating}
+            condition = {props.condition}
             available = {props.available} 
 
         </div>
