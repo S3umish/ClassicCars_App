@@ -34,7 +34,7 @@ class CarsContainer extends Component {
             <div>
                 <ul>
                 <h1>All Cars</h1>
-                    {this.makeCarCards()}
+                    {this.props.loading ? <h1>Loading...</h1> : this.makeCarCards()}
                 </ul>
             </div>
 
@@ -44,7 +44,8 @@ class CarsContainer extends Component {
 
 const mapStateToProps = (state) =>{
     return {
-        cars: state.cars
+        cars: state.cars,
+        loading: state.loading
     }
 
 }

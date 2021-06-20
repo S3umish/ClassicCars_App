@@ -1,7 +1,7 @@
 const url = "http://localhost:3001/cars"
 
 
-export const addCars = (cars) => ({type: "ADD_CARS", payload: cars})
+export const setCars = (cars) => ({type: "GOT_CARS", payload: cars})
 
 
 
@@ -13,8 +13,9 @@ export const fetchCars = () => {
         .then(res => res.json())
         .then(cars => {
             // console.log(cars)
-            dispatch(addCars(cars))
-        })
+            dispatch(setCars(cars))
+            }
+        )
 
     }
 

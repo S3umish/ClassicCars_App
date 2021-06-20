@@ -1,11 +1,17 @@
-export default function carReducer(state = {cars: []}, action){
+export default function carReducer(state = {cars: [], loading: false}, action){
 
     switch (action.type){
-        case "ADD_CARS":
+        case "GOT_CARS":
             return{
                 ...state,
-                cars: action.payload
+                cars: action.payload,
+                loading: false
             }
+
+        case "LOADING":
+            return {...state,
+            loading: true
+        }    
 
 
 
