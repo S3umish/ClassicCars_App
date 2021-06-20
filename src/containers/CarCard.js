@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {deleteCar} from '../actions/carActions'
 
 const CarCard = (props) => {
 
@@ -10,6 +11,7 @@ const CarCard = (props) => {
             description = {props.description}
             condition = {props.condition}
             available = {props.available} 
+            <button onClick={()=>props.deleteCar(props.id)}>X</button>
 
         </div>
     )
@@ -17,4 +19,4 @@ const CarCard = (props) => {
     
 } 
 
- export default connect()(CarCard)
+ export default connect(null, {deleteCar})(CarCard)

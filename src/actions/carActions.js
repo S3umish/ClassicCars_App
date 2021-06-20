@@ -5,6 +5,7 @@ export const setCars = (cars) => ({type: "GOT_CARS", payload: cars})
 
 export const addCar = (car) => ({type: "ADDED_CAR", payload: car})
 
+export const deletedCar = (id) => ({type: "DELETED_CAR", payload: id})
 
 
 export const fetchCars = () => {
@@ -44,3 +45,25 @@ export const createCar = (car) => {
     }
 }
 
+
+export const deleteCar = (id) => {
+    return (dispatch) => {
+
+        const configObj ={
+            method: "DELETE",
+            headers: {
+                'Content-Type': "application/json",
+                'Accepts': "application/json"
+            },
+            
+        }
+        fetch(`${url}/${id}`,configObj)
+            .then(res => res.json())
+            .then(json=> {
+            // console.log(car)
+            dispatch(deletedCar(id)
+           
+        )}
+        )
+    }
+}

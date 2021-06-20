@@ -20,6 +20,9 @@ export default function carReducer(state = {cars: [], loading: false}, action){
                 loading: false
             }
 
+        case "DELETED_CAR":
+           const newCars = state.cars.filter(car=> car.id !== action.payload)
+            return {...state, cars: newCars}
 
 
         default:
