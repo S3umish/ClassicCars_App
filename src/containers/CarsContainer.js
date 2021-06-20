@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchCars} from '../actions/carActions'
 import CarCard from './CarCard'
+import CarForm from'./CarForm'
 
 
 class CarsContainer extends Component {
@@ -32,10 +33,14 @@ class CarsContainer extends Component {
         
         return (
             <div>
+
+                <CarForm />
                 <ul>
+
                 <h1>All Cars</h1>
                     {this.props.loading ? <h1>Loading...</h1> : this.makeCarCards()}
                 </ul>
+
             </div>
 
         )
