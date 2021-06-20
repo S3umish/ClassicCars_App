@@ -16,18 +16,18 @@ class App extends Component {
   return (
     <div className="App">
 
-    <h1>Classic Cars</h1> 
-      <Navigation /> 
+    {/* <h1>Classic Cars</h1>  */}
+        <Navigation /> 
         <Home />
         <About />
 
-        <div>
+        {/* <div> */}
         <CarsContainer />
-        </div> 
+        {/* </div>  */}
 
-        <div className="footer">
+        {/* <div className="footer"> */}
           <Footer/>
-        </div>
+        {/* </div> */}
       
     </div>
   );
