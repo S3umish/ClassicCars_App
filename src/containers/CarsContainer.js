@@ -1,21 +1,36 @@
 import React, { Component } from 'react'
-import { connect } from "react-redux"
+import { connect } from 'react-redux'
+import { fetchCars} from '../actions/carActions'
+
 
 class CarsContainer extends Component {
-    render() {
+
+
+    componentDidMount(){
+        this.props.fetchCars()
+    }
+
+    render(){
         return (
             <div>
-                <h2>CarsContainer</h2>
+
             </div>
+
         )
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) =>{
     return {
-        cars: state.carReducer.cars,
-        loading: state.carReducer.loading
+        cars: state.cars
+    }
+
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {fetchCars: () => {dispatch(fetchCars())}
+
     }
 }
 
-export default connect(mapStateToProps)(CarsContainer)
+export default connect(mapStateToProps,mapDispatchToProps)(CarsContainer)
