@@ -17,10 +17,10 @@ class CarsContainer extends Component {
          return <CarCard
             key = {car.id}
             id ={car.id}
-            name = {car.name}
+            title = {car.title}
             image_url ={car.image_url}
             description = {car.description}
-            rating = {car.rating}
+            condition = {car.condition}
             available = {car.available} 
             /> 
         }
