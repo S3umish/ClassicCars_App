@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchCars} from '../actions/carActions'
 import CarCard from './CarCard'
-import CarForm from'./CarForm'
+import CarForm from './CarForm'
 
 
 class CarsContainer extends Component {
@@ -16,9 +16,9 @@ class CarsContainer extends Component {
         return this.props.cars.map(car=> {
          return <CarCard
             key = {car.id}
-            id ={car.id}
+            id = {car.id}
             title = {car.title}
-            image_url ={car.image_url}
+            image_url = {car.image_url}
             description = {car.description}
             condition = {car.condition}
             available = {car.available} 
@@ -57,6 +57,7 @@ const mapStateToProps = (state) =>{
 
 const mapDispatchToProps = (dispatch) => {
     return {fetchCars: () => {dispatch(fetchCars())}
+           
 
     }
 }

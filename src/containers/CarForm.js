@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
+import { createCar } from '../actions/carActions'
 
 class CarForm extends Component {
 
@@ -14,12 +15,12 @@ class CarForm extends Component {
     }
 
     handleChange = (event)=>{
-        console.log(event.target.value)
+        // console.log(event.target.value)
         const name = event.target.name
         const value = event.target.value
+
         this.setState({
             [name]: value
-
         })
 
     }
@@ -27,21 +28,22 @@ class CarForm extends Component {
     handleSubmit =(event)=> {
         event.preventDefault()
         console.log(event)
+        this.props.createCar(this.state)
         this.setState({
-               title:"",
+                title:"",
                 image_url: "",
                 description: "",
                 condition: "",
                 available: "",
-                loading: false
-        
-        
+                loading: false     
         })
 
     }
 
     render(){
+       
         return(
+           
             <div>
 
                 <form onSubmit={this.handleSubmit}>
@@ -90,7 +92,7 @@ class CarForm extends Component {
                     >
                     </input>
 
-                    {/* <button input type="submit">Submit</button> */}
+                    <button type="submit">Submit</button>
 
 
                 </form>
@@ -104,4 +106,4 @@ class CarForm extends Component {
 }
 
 
-export default connect()(CarForm)
+export default connect(null, { createCar })(CarForm)

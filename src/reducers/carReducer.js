@@ -9,9 +9,16 @@ export default function carReducer(state = {cars: [], loading: false}, action){
             }
 
         case "LOADING":
-            return {...state,
-            loading: true
+            return {
+                ...state,
+                loading: true
         }    
+
+        case "ADDED_CAR":
+            return {...state,
+                cars:[...state.cars,action.payload],
+                loading: false
+            }
 
 
 

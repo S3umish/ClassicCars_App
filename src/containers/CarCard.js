@@ -5,9 +5,7 @@ const CarCard = (props) => {
 
     return(
         <div className ="carCard">
-            key= {props.id}
-            id = {props.id}
-            title = {props.tile}
+            title = {props.title}
             image_url = {props.image_url}
             description = {props.description}
             condition = {props.condition}
