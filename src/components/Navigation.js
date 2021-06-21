@@ -12,8 +12,8 @@ const Navigation = () => {
           <Nav className="mr-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
-            <Nav.Link href="/cars">AllCars</Nav.Link>
-            <Nav.Link href="/car/new">AddCar</Nav.Link>
+            <Nav.Link href="/cars">CarsCollection</Nav.Link>
+            {/* <Nav.Link href="/car/new">AddCar</Nav.Link> */}
          </Nav>
       </Navbar>
     </div>

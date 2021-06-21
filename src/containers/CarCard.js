@@ -5,18 +5,6 @@ import {deleteCar} from '../actions/carActions'
 
 const CarCard = (props) => {
 
-    // return(
-    //     <div className ="carCard">
-    //         title = {props.title}
-    //         image_url = {props.image_url}
-    //         description = {props.description}
-    //         condition = {props.condition}
-    //         available = {props.available} 
-    //         <button onClick={()=>props.deletedCar(props.id)}>X</button>
-
-    //     </div>
-    // )
-
     return (
         
         <div className= "col-md-6 col-lg-3">
@@ -25,8 +13,8 @@ const CarCard = (props) => {
                 <div className ="card-body">
                     <h4 className ="card-title text-center">{props.title}</h4>
                     <p className="card-text">{props.description}</p>
-                    <h5 className ="card-condition text-center">{props.condition}</h5>
-                    <h5 className ="card-available text-center">{props.available}</h5> 
+                    <h5 className ="card-condition text-center" >{props.condition} Condition</h5>
+                    <h5 className ="card-available text-center" > Available: {props.available} </h5> 
                     <button type="button"
                      className="btn btn-primary btn-lg"
                      onClick={()=>props.deleteCar(props.id)}>Delete</button>

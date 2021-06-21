@@ -45,7 +45,7 @@ class CarForm extends Component {
         return(
            
             <div className="container">
-                <hr/>
+            <h4>You can add new cars and edit your car collection !!</h4>
 
                 <div className="row">
                 <form  className= "form-group" onSubmit={this.handleSubmit}>

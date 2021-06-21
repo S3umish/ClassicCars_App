@@ -3,10 +3,18 @@ import { connect } from 'react-redux';
 import './App.css';
 
 import CarsContainer from './containers/CarsContainer';
+import CarForm from './containers/CarForm'
+
 import Home from './components/Home'
 import About from './components/About'
 import Footer from './components/Footer'
 import Navigation from './components/Navigation'
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -14,22 +22,30 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 class App extends Component {
   render(){
   return (
-    <div className="App">
-
-    {/* <h1>Classic Cars</h1>  */}
+  
+    <Router>
+      <div className="App">
         <Navigation /> 
-        <Home />
-        <About />
+        <Switch>
+          <Route exact path= "/">
+            <Home />
+          </Route>  
+          <Route exact path= "/about">
+            <About />
+          </Route>  
+          <Route exact path= "/cars">
+            <CarsContainer />
+          </Route> 
+          <Route exact path= "/cars/new">
+            <CarForm />
+          </Route> 
 
-        {/* <div> */}
-        <CarsContainer />
-        {/* </div>  */}
-
-        {/* <div className="footer"> */}
+        </Switch>
           <Footer/>
-        {/* </div> */}
       
     </div>
+    </Router>
+       
   );
   }
 }
