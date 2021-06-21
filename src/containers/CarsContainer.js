@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchCars} from '../actions/carActions'
@@ -35,9 +36,8 @@ class CarsContainer extends Component {
             <div>
 
                 <CarForm />
+                <br></br>
                 <ul>
-
-                <h1>All Cars</h1>
                     {this.props.loading ? <h1>Loading...</h1> : this.makeCarCards()}
                 </ul>
 
@@ -56,8 +56,9 @@ const mapStateToProps = (state) =>{
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {fetchCars: () => {dispatch(fetchCars())}
-           
+   
+    return {fetchCars: () => {dispatch(fetchCars())},
+        
 
     }
 }

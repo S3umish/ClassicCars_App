@@ -10,7 +10,7 @@ const Home = () => {
         <Jumbotron fluid className='jumbotron'>
           <h1>Welcome to ClassicCars </h1>
           <h2>Vehicle Inventory System</h2>
-          </Jumbotron>
+        </Jumbotron>
     </div>
   )
 }

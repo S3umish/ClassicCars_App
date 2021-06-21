@@ -48,7 +48,6 @@ export const createCar = (car) => {
 
 export const deleteCar = (id) => {
     return (dispatch) => {
-
         const configObj ={
             method: "DELETE",
             headers: {
@@ -57,13 +56,14 @@ export const deleteCar = (id) => {
             },
             
         }
+         
         fetch(`${url}/${id}`,configObj)
             .then(res => res.json())
             .then(json=> {
-            // console.log(car)
-            dispatch(deletedCar(id)
+             console.log(json)
+            dispatch(deletedCar(id))
            
-        )}
-        )
+            })
+        
     }
 }

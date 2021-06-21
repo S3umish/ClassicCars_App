@@ -44,12 +44,16 @@ class CarForm extends Component {
        
         return(
            
-            <div>
+            <div className="container">
+                <hr/>
 
-                <form onSubmit={this.handleSubmit}>
+                <div className="row">
+                <form  className= "form-group" onSubmit={this.handleSubmit}>
                     <label>Title:</label>
                     <input 
-                    text="title"
+                    type="text"
+                    className="form-control mb-2 mr-sm-2 mb-sm-0"
+                    placeholder="Add Car's Title"
                     name ="title"
                     value={this.state.title}
                     onChange={this.handleChange}
@@ -58,7 +62,9 @@ class CarForm extends Component {
 
                     <label>Car Image:</label>
                     <input 
-                    text="image_url"
+                    type="text"
+                    className="form-control mb-2 mr-sm-2 mb-sm-0"
+                    placeholder="Add Car's Image"
                     name ="image_url"
                     value={this.state.image_url}
                     onChange={this.handleChange}
@@ -67,7 +73,9 @@ class CarForm extends Component {
 
                     <label>Description:</label>
                     <input 
-                    text="description"
+                    type="text"
+                    className="form-control mb-2 mr-sm-2 mb-sm-0"
+                    placeholder="Add Car's Description"
                     name ="description"
                     value={this.state.description}
                     onChange={this.handleChange}
@@ -76,29 +84,33 @@ class CarForm extends Component {
 
                     <label>Condition:</label>
                     <input 
-                    text="condition"
+                    type="text"
+                    className="form-control mb-2 mr-sm-2 mb-sm-0"
+                    placeholder="Add Car's Condition"
                     name ="condition"
                     value={this.state.condition}
                     onChange={this.handleChange}
                     >
                     </input>
-
+                    
                     <label>Is Available?</label>
                     <input 
-                    text="available"
+                    type="text"
+                    className="form-control mb-2 mr-sm-2 mb-sm-0"
+                    placeholder="Is Car Available?"
                     name ="available"
-                    value={this.state.available}
+                    // defaultValue={this.state.available}
+                        
                     onChange={this.handleChange}
                     >
+                    {/* <option value=" Is Not Available">No</option>
+                    <option value="Yes Its Available"> Yes</option> */}
                     </input>
 
-                    <button type="submit">Submit</button>
-
+                    <button type="submit" className="btn btn-primary btn-lg">Submit</button>
 
                 </form>
-
-             
-
+            </div>
             </div>
         )
 
