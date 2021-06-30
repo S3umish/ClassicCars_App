@@ -60,7 +60,7 @@ export const deleteCar = (id) => {
         fetch(`${url}/${id}`,configObj)
             .then(res => res.json())
             .then(json=> {
-             console.log(json)
+             console.log("SuccessFully Deleted")
             dispatch(deletedCar(id))
            
             })
