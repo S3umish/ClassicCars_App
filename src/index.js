@@ -1,23 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 
-// import rootReducer from "./reducers/index.js"
+import App from './App';
 
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from "redux"
 import thunk from "redux-thunk"
 import carReducer from './reducers/carReducer'
-// import {BrowserRouter as Router} from 'react-router-dom'
+
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import reportWebVitals from './reportWebVitals';
 
 
 const store = createStore(carReducer,composeWithDevTools(applyMiddleware(thunk)))
-
-
 
 
 ReactDOM.render(
