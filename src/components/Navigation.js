@@ -3,17 +3,19 @@ import React from 'react'
 import {Navbar, Nav} from 'react-bootstrap'
 
 
+
 const Navigation = () => {
 
   return (
     <div>
       <Navbar className='navbar'>
-        <Navbar.Brand href="#home">ClassicCars</Navbar.Brand>
+        <Navbar.Brand href="/">ClassicCars</Navbar.Brand>
           <Nav className="mr-auto">
-            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link> 
             <Nav.Link href="/about">About</Nav.Link>
-            <Nav.Link href="/cars">CarsCollection</Nav.Link>
-            {/* <Nav.Link href="/car/new">AddCar</Nav.Link> */}
+            <Nav.Link href="/cars">Cars</Nav.Link>
+            <Nav.Link href="/cars/new">AddNewCar</Nav.Link>
+            <Nav.Link href="/search">Search</Nav.Link>
          </Nav>
       </Navbar>
     </div>
