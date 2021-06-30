@@ -6,8 +6,10 @@ import CarsContainer from './containers/CarsContainer';
 import CarForm from './containers/CarForm'
 
 import Home from './components/Home'
+// import Header from './components/Header'
 import About from './components/About'
 import Footer from './components/Footer'
+import ShowNotFoundError from './components/ShowNotFoundError';
 import Navigation from './components/Navigation'
 
 import {
@@ -30,15 +32,19 @@ class App extends Component {
           <Route exact path= "/">
             <Home />
           </Route>  
+          {/* <Route exact path= "/header">
+            <Header />
+          </Route>   */}
           <Route exact path= "/about">
             <About />
           </Route>  
-          <Route exact path= "/cars">
+          <Route  exact path= "/cars">
             <CarsContainer />
           </Route> 
           <Route exact path= "/cars/new">
             <CarForm />
           </Route> 
+          <Route path ="" component={ShowNotFoundError}/>
 
         </Switch>
           <Footer/>
