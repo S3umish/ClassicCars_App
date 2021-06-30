@@ -10,7 +10,9 @@ const heartStyle = {
       <div className = "footer">
         <div>
         <footer>
-          <p>Made with <span style={heartStyle}>&#9829;</span> by Sunitee <br></br><a href='https://github.com/S3umish/ClassicCars'>Github</a></p>
+          <p>Made with <span style={heartStyle}>&#9829;</span> by Sunitee : 
+           {/* <a href='https://github.com/S3umish/ClassicCars'>Github</a> */}
+          </p>
         </footer>
 
         </div>
