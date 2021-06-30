@@ -21,7 +21,7 @@ code {
 
 .jumbotron {
   color: #fff;
-  background-image: url('https://images.unsplash.com/photo-1610752425711-25e897b71930?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHZpbnRhZ2UlMjBjYXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80');
+  background-image: url('https://www.awesomemitten.com/wp-content/uploads/2015/11/301-scaled.jpg');
   background-repeat: no-repeat;
   padding: 20px;
   height: 1200px;
@@ -44,6 +44,9 @@ code {
 }
 
 .CarCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   margin-bottom: 65px;
   color: rgb(0, 0, 0);
   font-family: Verdana, Geneva, sans-serif;
@@ -59,7 +62,7 @@ code {
 }
 
 .footer {
-  height: 50px;
+  height: 30px;
   background-color:hsl(52, 89%, 51%);
   position: fixed;
   bottom: 0;
@@ -85,3 +88,20 @@ code {
   display: block;
   text-align: center;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: auto;
+  justify-content:space-around;
+} 
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around
+
+}
+
