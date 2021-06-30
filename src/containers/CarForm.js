@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { createCar } from '../actions/carActions'
 
+
 class CarForm extends Component {
 
     state = {
@@ -27,7 +28,7 @@ class CarForm extends Component {
 
     handleSubmit =(event)=> {
         event.preventDefault()
-        console.log(event)
+        console.log("Successfully Added")
         this.props.createCar(this.state)
         this.setState({
                 title:"",
@@ -45,11 +46,12 @@ class CarForm extends Component {
         return(
            
             <div className="container">
-            <h4>You can add new cars and edit your car collection !!</h4>
+           
+            
 
                 <div className="row">
                 <form  className= "form-group" onSubmit={this.handleSubmit}>
-                    <label>Title:</label>
+                    {/* <label>Title:</label>  */}
                     <input 
                     type="text"
                     className="form-control mb-2 mr-sm-2 mb-sm-0"
@@ -60,7 +62,7 @@ class CarForm extends Component {
                     >
                     </input>
 
-                    <label>Car Image:</label>
+                    {/* <label>Car Image:</label> */}
                     <input 
                     type="text"
                     className="form-control mb-2 mr-sm-2 mb-sm-0"
@@ -71,7 +73,7 @@ class CarForm extends Component {
                     >
                     </input>
 
-                    <label>Description:</label>
+                    {/* <label>Description:</label> */}
                     <input 
                     type="text"
                     className="form-control mb-2 mr-sm-2 mb-sm-0"
@@ -82,7 +84,7 @@ class CarForm extends Component {
                     >
                     </input>
 
-                    <label>Condition:</label>
+                    {/* <label>Condition:</label> */}
                     <input 
                     type="text"
                     className="form-control mb-2 mr-sm-2 mb-sm-0"
@@ -93,23 +95,22 @@ class CarForm extends Component {
                     >
                     </input>
                     
-                    <label>Is Available?</label>
+                    {/* <label>Is Available?</label> */}
                     <input 
                     type="text"
                     className="form-control mb-2 mr-sm-2 mb-sm-0"
                     placeholder="Is Car Available?"
                     name ="available"
-                    // defaultValue={this.state.available}
-                        
+                    value={this.state.available}  
                     onChange={this.handleChange}
                     >
-                    {/* <option value=" Is Not Available">No</option>
-                    <option value="Yes Its Available"> Yes</option> */}
                     </input>
+                   
+                    <br></br>
 
-                    <button type="submit" className="btn btn-primary btn-lg">Submit</button>
-
+                    <button type="submit" className="btn btn-primary btn-mb"> Submit the filled in form to add cars to the collection.</button>
                 </form>
+                 
             </div>
             </div>
         )
