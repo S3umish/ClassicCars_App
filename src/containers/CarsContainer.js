@@ -7,7 +7,10 @@ import CarForm from './CarForm'
 
 import SearchBar from '../containers/SearchBar'
 import { Switch, Route, Link } from 'react-router-dom'
-import ShowCar from './ShowCar'
+
+import CarShow from './CarShow'
+import Cars from './Cars'
+
 
 
 
@@ -24,7 +27,6 @@ class CarsContainer extends Component {
 
     filterCars = (e) => {
         const searchTerm = e.target.value
-
         console.log(searchTerm)
         this.setState({searchTerm: searchTerm})
     }
@@ -40,6 +42,27 @@ class CarsContainer extends Component {
             condition = {car.condition}
             available = {car.available} 
             /> )
+    }
+
+
+    showCars(){
+        return this.props.cars.map(car => {
+            return (
+                <div key={car.id}>
+                    <h6><Link to={`/cars/${car.id}`}>{car.title}</Link></h6>
+                </div>
+            )
+        })
+    }
+
+    inventoryCars(){
+        return this.props.cars.map(car => {
+            return (
+                <div key={car.id}>
+                    <ol> {car.title} -In Stock: <b>{car.available}</b> & its Condition is {car.condition}.</ol>
+                </div>
+            )
+        })
     }
 
 
@@ -59,55 +82,51 @@ class CarsContainer extends Component {
     )}
 
 
-    showCars(){
-        return this.props.cars.map(car => {
-            return (
-                <div key={car.id}>
-                    <h4><Link to= {`/cars/${car.id}`}>{car.title}</Link>- Available: {car.available}</h4>
-                </div>
-            )
-        })
-    }
-
-
     render(){  
-        
+       
+        // console.log(this.props)
         return (
 
+    
             <div>
+                {this.showCars()}
 
-                        {/* <CarForm />
-                        <ul>
-
-                            {this.props.loading ? <h1>Loading...</h1> : this.makeCarCards()}
-                        </ul>  */}
-
+                <hr></hr>
 
 
                  <Switch> 
-                    <Route exact path= "/cars"> 
+                    <Route exact path ="/cars">
                         <SearchBar  filterCars={this.filterCars}/>
-                        {this.showCars()} 
-                        {this.displayCars()}        
+                        <hr></hr>
+                        <h2>Cars Inventory</h2>
+                        {this.inventoryCars()}
+                        {this.displayCars()} 
                     </Route>
+                    
 
                     <Route exact path="/cars/new">
                         <CarForm />
-                            {this.props.loading ? <h1>Loading...</h1> : this.makeCarCards()}
+                            {this.props.loading ? <h1>Loading...</h1> : this.makeCarCards()}                     
                     </Route>
 
-                    <Route path="/cars/:id" components={(routeInfo)=> {
-                        const id = parseInt(routeInfo.match.params.id)
-                        const car = this.props.cars.find(c=> c.id === id)
-                        return !!car ? <ShowCar routeInfo={routeInfo} car={car}/> : <div>Not Found!</div> 
-                     }}/>
 
+                    <Route exact path="/cars/:id">
+                        <CarShow showCars={this.showCars()}/>
+                         
+                    </Route>
+
+                    <Route path="/cars/:id" component={(routeData) => {
+                        console.log(routeData)
+                        const id= parseInt(routeData.match.params.id)
+                        const car =this.state.cars.find(car => car.id === id)
+                        return !!car? <Cars car={car} /> : <div>404</div>
+                    }} /> 
 
                 </Switch> 
 
             </div>
                   
-               
+         
         )
 
     }
