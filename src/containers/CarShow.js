@@ -16,7 +16,7 @@ class CarShow extends React.Component {
             return <div> 
                 <h2>{car.title}</h2>
                 <img height={333} width={333} src={car.image_url} alt={car.title}/>
-                <p>Highlights :{car.description}</p>
+                <p>Description :{car.description}</p>
                 <h3>Is Available ? {car.available}</h3>
                 <h3>Working Condition: {car.condition}</h3>
              </div>

@@ -28,7 +28,7 @@ class CarsContainer extends Component {
 
     filterCars = (e) => {
         const searchTerm = e.target.value
-        console.log(searchTerm)
+        // console.log(searchTerm)
         this.setState({searchTerm: searchTerm})
     }
 
@@ -96,12 +96,12 @@ class CarsContainer extends Component {
 
 
                  <Switch> 
-                    <Route path="/cars/:id" component={(object) => {
+                    <Route path="/cars/:id" component={(carObj) => {
                         // console.log(object)
                         
-                        let id = object.match.params.id
+                        let id = carObj.match.params.id
                         let car = this.state.cars.find(car => car.id === parseInt(id))
-                        debugger
+                        // debugger
                         if (car){
                             return <CarShow car={car} />
                         } else {
@@ -113,9 +113,9 @@ class CarsContainer extends Component {
                     
 
                     <Route exact path ="/cars">
-                    <h2>Cars Inventory</h2>
+                    {/* <h2>Cars Inventory</h2>
                         {this.inventoryCars()}
-                        <hr></hr>
+                        <hr></hr> */}
                         <SearchBar  filterCars={this.filterCars}/>
                         <hr></hr>
                         
