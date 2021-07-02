@@ -12,7 +12,6 @@ const CarCard = (props) => {
         <div>
         <Container className="container" >
             <Row  className="flex-row">
-
                 <div className= "col-md-6 col-lg-3">
                 <div className="card mb-3" >
                         <img className="card-img-top" src={props.image_url} alt="car"/>
@@ -28,10 +27,8 @@ const CarCard = (props) => {
                     </div>
                 </div>
             </Row>
-            </Container>
-        
+         </Container>      
         </div>
-       
     )
     
     

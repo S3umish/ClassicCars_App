@@ -1,3 +1,5 @@
+
+
 const ShowNotFoundError = () => {
 
     return(
@@ -8,9 +10,7 @@ const ShowNotFoundError = () => {
         <p> Please choose above tabs to find the Car's related information.</p>
 
         </div>
-        
-
-        
+               
     )
 }
 

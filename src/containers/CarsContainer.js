@@ -12,14 +12,10 @@ import CarShow from './CarShow'
 // import Cars from './Cars'
 
 
-
-
-
 class CarsContainer extends Component {
 
     state = { 
-        searchTerm:"",
-        
+        searchTerm:"",       
     }
     
     componentDidMount(){
@@ -67,7 +63,6 @@ class CarsContainer extends Component {
     }
 
 
-
     makeCarCards(){
         return this.props.cars.map(car=> {
          return <CarCard
@@ -91,60 +86,29 @@ class CarsContainer extends Component {
     
             <div>
                 {this.showCars()} 
-
                 <hr></hr>
 
-
                  <Switch> 
-                    <Route path="/cars/:id" component={(carObj) => {
-                        // console.log(object)
-                        
-                        let id = carObj.match.params.id
-                        let car = this.state.cars.find(car => car.id === parseInt(id))
-                        // debugger
-                        if (car){
-                            return <CarShow car={car} />
-                        } else {
-                            return <h2>Loading Cars...</h2>
-                                 
-                        }
-                    }}/>
                     
-                    
-
-                    <Route exact path ="/cars">
-                    {/* <h2>Cars Inventory</h2>
-                        {this.inventoryCars()}
-                        <hr></hr> */}
+                    <Route exact path ="/cars">            
                         <SearchBar  filterCars={this.filterCars}/>
-                        <hr></hr>
-                        
+                        <hr></hr>         
                         {this.displayCars()} 
                     </Route>
                     
-
                     <Route exact path="/cars/new">
                         <CarForm />
                             {this.props.loading ? <h1>Loading...</h1> : this.makeCarCards()}                     
                     </Route>
 
-
-                    {/* <Route path="/cars/:id"  component={(routeInfo) => {
-                    const id = parseInt(routeInfo.match.params.id)
-                    const car = this.props.cars.find(i => i.id === id)
-                    return !!car ? <CarShow routeInfo={routeInfo} car={car}/> : <div>Not Found!</div>
-                    }}/> */}
-            
-                        
-            
-
+                    <Route path ="/cars/:id">
+                        <CarShow />
+                    </Route>
                     
-
                 </Switch> 
 
             </div>
-                  
-         
+                         
         )
 
     }

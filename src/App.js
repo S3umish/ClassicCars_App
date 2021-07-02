@@ -31,6 +31,7 @@ class App extends Component {
     <Router>
       <div className="App">
         <Navigation /> 
+        <br></br>
         
 
         <Switch>
@@ -42,24 +43,21 @@ class App extends Component {
             <About />
           </Route>  
 
+          <Route exact path= "/cars">
+            <CarsContainer/>
+          </Route>
 
-
-          <Route  exact path= "/cars" component={(routeInfo) => 
-          <CarsContainer routeData={routeInfo}/>}></Route>
-          
-          
           <Route exact path= "/cars/new">
             <CarForm />
           </Route> 
-
-      
-           <Route path= "/cars/:id" component={(routeInfo) => <CarShow routeData={routeInfo} />}></Route> 
+  
+          <Route path= "/cars/:id" component={(routeInfo) => 
+           <CarShow routeData={routeInfo} />}></Route> 
 
            <Route path ="" component={ShowNotFoundError}/>
 
         </Switch>
-          <Footer/>
-      
+          <Footer/>   
     </div>
     </Router>
        

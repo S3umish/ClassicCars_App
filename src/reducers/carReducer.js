@@ -29,6 +29,5 @@ export default function carReducer(state = {cars: [], loading: false}, action){
             return state
     }
 
-
 }
 

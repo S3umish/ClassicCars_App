@@ -47,8 +47,6 @@ class CarForm extends Component {
            
             <div className="container">
            
-            
-
                 <div className="row">
                 <form  className= "form-group" onSubmit={this.handleSubmit}>
                     {/* <label>Title:</label>  */}
@@ -104,17 +102,13 @@ class CarForm extends Component {
                     value={this.state.available}  
                     onChange={this.handleChange}
                     >
-                    </input>
-                   
+                    </input>                   
                     <br></br>
-
                     <button type="submit" className="btn btn-primary btn-mb"> Submit the filled in form to add cars to the collection.</button>
-                </form>
-                 
+                </form>                
             </div>
             </div>
         )
-
     }
 }
 

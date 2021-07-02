@@ -4,7 +4,7 @@ function SearchBar(props){
 
     return(
         <div id="search-bar">
-            Search Car: <input onChange={(e) => props.filterCars(e)}></input>
+            Search Car By Title: <input onChange={(e) => props.filterCars(e)}></input>
         </div>
     )
 }
