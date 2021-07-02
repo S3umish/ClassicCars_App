@@ -9,7 +9,7 @@ import SearchBar from '../containers/SearchBar'
 import { Switch, Route, Link } from 'react-router-dom'
 
 import CarShow from './CarShow'
-import Cars from './Cars'
+// import Cars from './Cars'
 
 
 
@@ -18,7 +18,8 @@ import Cars from './Cars'
 class CarsContainer extends Component {
 
     state = { 
-        searchTerm:""
+        searchTerm:"",
+        
     }
     
     componentDidMount(){
@@ -89,17 +90,35 @@ class CarsContainer extends Component {
 
     
             <div>
-                {this.showCars()}
+                {this.showCars()} 
 
                 <hr></hr>
 
 
                  <Switch> 
+                    <Route path="/cars/:id" component={(object) => {
+                        // console.log(object)
+                        
+                        let id = object.match.params.id
+                        let car = this.state.cars.find(car => car.id === parseInt(id))
+                        debugger
+                        if (car){
+                            return <CarShow car={car} />
+                        } else {
+                            return <h2>Loading Cars...</h2>
+                                 
+                        }
+                    }}/>
+                    
+                    
+
                     <Route exact path ="/cars">
+                    <h2>Cars Inventory</h2>
+                        {this.inventoryCars()}
+                        <hr></hr>
                         <SearchBar  filterCars={this.filterCars}/>
                         <hr></hr>
-                        <h2>Cars Inventory</h2>
-                        {this.inventoryCars()}
+                        
                         {this.displayCars()} 
                     </Route>
                     
@@ -110,17 +129,16 @@ class CarsContainer extends Component {
                     </Route>
 
 
-                    <Route exact path="/cars/:id">
-                        <CarShow showCars={this.showCars()}/>
-                         
-                    </Route>
+                    {/* <Route path="/cars/:id"  component={(routeInfo) => {
+                    const id = parseInt(routeInfo.match.params.id)
+                    const car = this.props.cars.find(i => i.id === id)
+                    return !!car ? <CarShow routeInfo={routeInfo} car={car}/> : <div>Not Found!</div>
+                    }}/> */}
+            
+                        
+            
 
-                    <Route path="/cars/:id" component={(routeData) => {
-                        console.log(routeData)
-                        const id= parseInt(routeData.match.params.id)
-                        const car =this.state.cars.find(car => car.id === id)
-                        return !!car? <Cars car={car} /> : <div>404</div>
-                    }} /> 
+                    
 
                 </Switch> 
 
@@ -148,3 +166,5 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(CarsContainer)
+
+

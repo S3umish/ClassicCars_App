@@ -23,6 +23,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 
+
 class App extends Component {
   render(){
   return (
@@ -41,6 +42,8 @@ class App extends Component {
             <About />
           </Route>  
 
+
+
           <Route  exact path= "/cars" component={(routeInfo) => 
           <CarsContainer routeData={routeInfo}/>}></Route>
           
@@ -49,10 +52,10 @@ class App extends Component {
             <CarForm />
           </Route> 
 
-        
-           <Route path ="" component={ShowNotFoundError}/>
+      
+           <Route path= "/cars/:id" component={(routeInfo) => <CarShow routeData={routeInfo} />}></Route> 
 
-           <Route path= "/cars/:id" component={(routeInfo) => <CarShow routeData={routeInfo} />}></Route>
+           <Route path ="" component={ShowNotFoundError}/>
 
         </Switch>
           <Footer/>
