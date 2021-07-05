@@ -5,11 +5,11 @@ import { fetchCars} from '../actions/carActions'
 import CarCard from './CarCard'
 import CarForm from './CarForm'
 
-import SearchBar from '../containers/SearchBar'
+import SearchBar from '../components/SearchBar'
 import { Switch, Route, Link } from 'react-router-dom'
 
 import CarShow from './CarShow'
-// import Cars from './Cars'
+
 
 
 class CarsContainer extends Component {
@@ -46,23 +46,13 @@ class CarsContainer extends Component {
         return this.props.cars.map(car => {
             return (
                 <div key={car.id}>
-                    <h6><Link to={`/cars/${car.id}`}>{car.title}</Link></h6>
+                    <h6><Link to={`/cars/${car.id}`}> #{car.id}:  {car.title}</Link></h6>
                 </div>
             )
         })
     }
 
-    inventoryCars(){
-        return this.props.cars.map(car => {
-            return (
-                <div key={car.id}>
-                    <ol> {car.title} -In Stock: <b>{car.available}</b> & its Condition is {car.condition}.</ol>
-                </div>
-            )
-        })
-    }
-
-
+    
     makeCarCards(){
         return this.props.cars.map(car=> {
          return <CarCard
@@ -85,7 +75,12 @@ class CarsContainer extends Component {
 
     
             <div>
+
+            <span className="text-success"><h3><b>Cars Inventory</b></h3></span>
+            <hr></hr>
                 {this.showCars()} 
+
+               
                 <hr></hr>
 
                  <Switch> 

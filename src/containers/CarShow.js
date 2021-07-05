@@ -15,32 +15,27 @@ class CarShow extends React.Component {
         if (car){
             return <div> 
                 <h2>{car.title}</h2>
+                
                 <img height={333} width={333} src={car.image_url} alt={car.title}/>
-                <p>Description :{car.description}</p>
+                <br></br><br></br>
+                <p><b>Description:</b>{car.description}</p>
                 <h3>Is Available ? {car.available}</h3>
                 <h3>Working Condition: {car.condition}</h3>
              </div>
         } else {
-            return <h2>Loading Cars...</h2>
-                 
+            return <h2>Loading...</h2>                
         }
     }
 
     
     render(){
-        return(
-   
+        return(  
              <div>
-                {this.renderCars()}
-                      
+                {this.renderCars()}                      
             </div>
-        )
-
-    
+        )    
     }
 }
-
-
 
 
 const mapStateToProps =(state) => {
@@ -49,7 +44,7 @@ const mapStateToProps =(state) => {
 }
 const mapDispatchToProps = (dispatch) => {
    
-    return {fetchCars: () => {dispatch(fetchCars())},
+    return {fetchCars: () => {dispatch(fetchCars())}
     }
 }
 
