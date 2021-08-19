@@ -12,20 +12,21 @@ export const fetchCars = () => {
     
     return (dispatch) => {
         dispatch({type:"LOADING"})
+        
         fetch(url)
-        .then(res => res.json())
+        .then(res => res.json()) 
         .then(cars => {
-            // console.log(cars)
-            dispatch(setCars(cars))
-            }
-        )
+            console.log(cars)
+            dispatch(setCars(cars))     
+        })
+       
     }
 }
 
 
 export const createCar = (car) => {
-    return (dispatch) => {
-        
+    return (dispatch) => {  
+
         const configObj ={
             method: "POST",
             headers: {

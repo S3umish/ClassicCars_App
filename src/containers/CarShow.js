@@ -1,22 +1,23 @@
-import React from 'react'
+import React, {Component} from 'react'
 
 import {connect} from 'react-redux'
 import {fetchCars} from '../actions/carActions'
 
-class CarShow extends React.Component {
+class CarShow extends Component{
 
     componentDidMount(){
-        this.props.fetchCars()
+        this.props.fetchCars()       
     }
     
-    renderCars(){
+    
+    renderCars =() =>{
+    
         const id= parseInt(this.props.routeData.match.params.id)
         const car = this.props.cars.find(car => car.id === id )
         if (car){
             return <div> 
-                <h2>{car.title}</h2>
-                
-                <img height={333} width={333} src={car.image_url} alt={car.title}/>
+                <h2>{car.title}</h2> 
+                <img height={333} width={444} src={car.image_url} alt={car.title}/>
                 <br></br><br></br>
                 <p><b>Description:</b>{car.description}</p>
                 <h3>Is Available ? {car.available}</h3>
@@ -39,7 +40,11 @@ class CarShow extends React.Component {
 
 
 const mapStateToProps =(state) => {
-    return {cars: state.cars}
+    return {cars: state.cars,
+        loading : state.loading
+    
+    }
+
 
 }
 const mapDispatchToProps = (dispatch) => {

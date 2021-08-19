@@ -20,6 +20,8 @@ import {
 } from "react-router-dom";
 
 import 'bootstrap/dist/css/bootstrap.min.css'
+import AvailableCars from './containers/AvailableCars';
+import SearchCars from './containers/SearchCars'
 
 
 
@@ -30,11 +32,11 @@ class App extends Component {
   
     <Router>
       <div className="App">
+      
         <Navigation /> 
         <br></br>
-        
-
-        <Switch>
+      
+       <Switch>
           <Route exact path= "/">
             <Home />
           </Route>  
@@ -50,13 +52,21 @@ class App extends Component {
           <Route exact path= "/cars/new">
             <CarForm />
           </Route> 
+
+          <Route exact path= "/cars/available">
+            <AvailableCars/>
+          </Route>
+
+          {/* <Route exact path= "/cars/search">
+            <SearchCars/>
+          </Route> */}
   
           <Route path= "/cars/:id" component={(routeInfo) => 
            <CarShow routeData={routeInfo} />}></Route> 
 
            <Route path ="" component={ShowNotFoundError}/>
+           </Switch>
 
-        </Switch>
           <Footer/>   
     </div>
     </Router>
