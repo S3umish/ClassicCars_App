@@ -1,8 +1,8 @@
 # Getting Started with Create React App
 
-Classic Cars backend repo : https://github.com/S3umish/classiccars-api
+[Classic Cars backend repo](https://github.com/S3umish/classiccars-api)
 
-Video : https://youtu.be/TL2MQFI1Lhw
+[Video Demo](https://www.youtube.com/watch?v=GISJdWGGiWo)
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
