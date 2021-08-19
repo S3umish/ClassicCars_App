@@ -6,17 +6,17 @@ import { createCar } from '../actions/carActions'
 class CarForm extends Component {
 
     state = {
+        
         title:"",
         image_url: "",
         description: "",
         condition: "",
         available: "",
-        loading: false
+        loading: false 
 
     }
 
     handleChange = (event)=>{
-        // console.log(event.target.value)
         const name = event.target.name
         const value = event.target.value
 
@@ -30,6 +30,7 @@ class CarForm extends Component {
         event.preventDefault()
         console.log("Successfully Added")
         this.props.createCar(this.state)
+       
         this.setState({
                 title:"",
                 image_url: "",
@@ -49,7 +50,7 @@ class CarForm extends Component {
            
                 <div className="row">
                 <form  className= "form-group" onSubmit={this.handleSubmit}>
-                    {/* <label>Title:</label>  */}
+                    <label>Title:</label>
                     <input 
                     type="text"
                     className="form-control mb-2 mr-sm-2 mb-sm-0"
@@ -60,7 +61,7 @@ class CarForm extends Component {
                     >
                     </input>
 
-                    {/* <label>Car Image:</label> */}
+                    <label>Car Image:</label>
                     <input 
                     type="text"
                     className="form-control mb-2 mr-sm-2 mb-sm-0"
@@ -71,7 +72,7 @@ class CarForm extends Component {
                     >
                     </input>
 
-                    {/* <label>Description:</label> */}
+                    <label>Description:</label>
                     <input 
                     type="text"
                     className="form-control mb-2 mr-sm-2 mb-sm-0"
@@ -82,7 +83,7 @@ class CarForm extends Component {
                     >
                     </input>
 
-                    {/* <label>Condition:</label> */}
+                    <label>Condition:</label>
                     <input 
                     type="text"
                     className="form-control mb-2 mr-sm-2 mb-sm-0"
@@ -93,7 +94,7 @@ class CarForm extends Component {
                     >
                     </input>
                     
-                    {/* <label>Is Available?</label> */}
+                    <label>Is Available?</label> 
                     <input 
                     type="text"
                     className="form-control mb-2 mr-sm-2 mb-sm-0"

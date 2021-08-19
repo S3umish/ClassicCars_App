@@ -1,10 +1,8 @@
-
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchCars} from '../actions/carActions'
 import CarCard from './CarCard'
 import CarForm from './CarForm'
-import SearchBar from '../components/SearchBar'
 import { Switch, Route, Link } from 'react-router-dom'
 import CarShow from './CarShow'
 
@@ -12,8 +10,8 @@ import CarShow from './CarShow'
 
 class CarsContainer extends Component {
 
-    state = { 
-        searchTerm:"",
+    state = {    
+        available : true,  
         cars: []       
     }
 
@@ -22,32 +20,29 @@ class CarsContainer extends Component {
          this.props.fetchCars()     
     }
 
-
-    filterCars = (e) => {
-        const searchTerm = e.target.value    
-        this.setState({searchTerm: searchTerm})       
+   
+    handleClick = (e) => { 
+        const newAvailable = this.state.available
+        this.setState({ 
+                available: !newAvailable    
+        },()=> console.log(this.state))
     }
 
-    renderSearch(){
-        const carsFilter = this.props.cars.filter(cars => cars.title.toUpperCase().includes(this.state.searchTerm.toUpperCase()))
-        return carsFilter.map(car => <CarCard
+    displayCarCards(){            
+        const carsToDisplay = this.props.cars.filter(car => {
+            const isAvailable = this.state.available ? "Yes" : "No"
+            return car.available  === isAvailable })  
+        return carsToDisplay.map(car => <CarCard
             key = {car.id}
             id = {car.id}  
             title = {car.title}
             image_url = {car.image_url}
-            description = {car.description}
-            condition = {car.condition}
-            available = {car.available}            
+            // description = {car.description}
+             condition = {car.condition}
+             available = {car.available}  
             /> )
     }
 
-   
-    // handleClick = (e) => { 
-    //     const newAvailable = this.state.available
-    //     this.setState({ 
-    //             available: !newAvailable    
-    //     },()=> console.log(this.state))
-    // }
    
 
     sortCars(){
@@ -100,22 +95,24 @@ class CarsContainer extends Component {
 
             <div>
            
+            {/* <span className="text-success"><h3><b>Cars Inventory</b></h3></span>
+            <hr></hr> */}
 
-            <span className="text-success"><h3><b>Cars Inventory</b></h3></span>
+            <button type="button"
+                            className="btn btn-info btn-lg"
+                            onClick={this.handleClick}>Cars In Stock: {this.state.available ? "Yes": "No"}</button>
+           
             <hr></hr>
-        
+            {this.displayCarCards()} 
+                    
+
+           
+            
+ 
                 {this.showCarList()}
                 <hr></hr>
-                
+            
                  <Switch> 
-                    
-                     <Route exact path ="/cars">            
-                        <SearchBar  filterCars={this.filterCars}/>
-                        <br></br>
-                        {this.renderSearch()}
-                        <hr></hr> 
-                            
-                    </Route>
                      
                     <Route exact path="/cars/new">
                         <CarForm />

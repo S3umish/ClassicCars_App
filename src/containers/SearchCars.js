@@ -4,9 +4,10 @@ import { connect } from 'react-redux'
 import { fetchCars} from '../actions/carActions'
 import CarCard from './CarCard'
 import CarForm from './CarForm'
-import SearchBar from '../components/SearchBar'
+// import SearchBar from '../components/SearchBar'
 import { Switch, Route, Link } from 'react-router-dom'
 import CarShow from './CarShow'
+import SearchBar from '../components/SearchBar'
 
 
 
@@ -39,6 +40,16 @@ class CarsContainer extends Component {
             condition = {car.condition}
             available = {car.available}            
             /> )
+    }
+
+    searchBar(){
+
+        return(
+            <div id="search-bar">
+                <span className="text-success"><h3><b>Search Car By Title:</b></h3>
+                 <input onChange={(e) => this.props.filterCars(e)}></input></span>
+            </div>
+        )
     }
 
    
@@ -102,15 +113,19 @@ class CarsContainer extends Component {
            
 
             <span className="text-success"><h3><b>Cars Inventory</b></h3></span>
-            <hr></hr>
+
+                    {this.searchBar()}
+             <hr></hr>
+
         
-                {this.showCarList()}
-                <hr></hr>
+                    {this.showCarList()}
+            <hr></hr>
                 
                  <Switch> 
                     
                      <Route exact path ="/cars">            
-                        <SearchBar  filterCars={this.filterCars}/>
+                        <SearchBar /> 
+                          filtercars= {this.filterCars}
                         <br></br>
                         {this.renderSearch()}
                         <hr></hr> 
