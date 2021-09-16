@@ -17,6 +17,7 @@ class CarsContainer extends Component {
 
  
     componentDidMount(){
+        
          this.props.fetchCars()     
     }
 
@@ -104,12 +105,8 @@ class CarsContainer extends Component {
            
             <hr></hr>
             {this.displayCarCards()} 
-                    
-
-           
-            
  
-                {this.showCarList()}
+            {this.showCarList()}
                 <hr></hr>
             
                  <Switch> 
@@ -127,8 +124,7 @@ class CarsContainer extends Component {
 
                     <Route path="/cars/available">
                     <CarCard/>
-                    
-                        
+                                
                     </Route>
                     
                 </Switch> 

@@ -57,9 +57,9 @@ class App extends Component {
             <AvailableCars/>
           </Route>
 
-          {/* <Route exact path= "/cars/search">
+          <Route exact path= "/cars/search">
             <SearchCars/>
-          </Route> */}
+          </Route> 
   
           <Route path= "/cars/:id" component={(routeInfo) => 
            <CarShow routeData={routeInfo} />}></Route> 

@@ -1,8 +1,7 @@
 import React from 'react' 
 
 const Pagination = ({ carsPerPage, totalCars, paginate})=> {
-
-
+   
     const pageNumbers = []
 
     for (let i=1; i<=Math.ceil(totalCars / carsPerPage); i++) {
